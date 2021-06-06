@@ -34,7 +34,7 @@ var jsonData =JSON.stringify(data);
 var url="https://us6.api.mailchimp.com/3.0/lists/b3089e987a";
 var options = {
   method: "POST",
-  auth: "nightgamer:dc975140e7fdb04cf10a4c5d4b25ecb74-us6"
+  auth: "nightgamer:dc975140e7fdb04cf1sdaf0a4c5d4b25ecb74-us6"
 }
 
 const request=https.request(url,options,function(response){
