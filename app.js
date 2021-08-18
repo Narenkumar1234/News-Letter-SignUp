@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const request = require ("request");
+const request = require("request");
 const https = require("https");
 const app = express();
 
@@ -15,7 +15,6 @@ app.post("/",function(req,res){
 var firstName = req.body.fName;
 var lastName = req.body.sName;
 var email = req.body.eMail;
-
 var data ={
   members: [
     {
@@ -30,11 +29,10 @@ var data ={
 }
 
 var jsonData =JSON.stringify(data);
-
 var url="https://us6.api.mailchimp.com/3.0/lists/b3089e987a";
 var options = {
   method: "POST",
-  auth: "nightgamer:dc975140e7fdb04cf1sdaf0a4c5d4b25ecb74-us6"
+  auth: "nightgamer:dc975140e7fb04cf10a4c5d4b25ecb74-us6"
 }
 
 const request=https.request(url,options,function(response){
@@ -43,8 +41,6 @@ const request=https.request(url,options,function(response){
   }
   else
     res.sendFile(__dirname+"/failure.html");
-
-
   response.on("data",function(data){
     console.log(JSON.parse(data));
   })
@@ -52,10 +48,6 @@ const request=https.request(url,options,function(response){
 
 request.write(jsonData);
 request.end();
-});
-
-app.post("/failure",function(req,res){
-  res.redirect("/");
 });
 
 app.listen(process.env.PORT || 3000 ,function(){
